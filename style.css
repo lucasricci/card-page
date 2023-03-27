@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --color-scheme: var(--dark-mode);
+    --no-dark-mode: light;
+    --dark-mode: dark light;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    color-scheme: var(--color-scheme);
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.form {
+    display: grid;
+    place-content: center;
+}
+
+.content-grid {
+    max-inline-size: 1200px;
+    padding-inline: 2rem;
+    margin-inline: auto;
+    min-block-size: 100vh;
+    min-block-size: 100dvh;
+    display: grid;
+}
+
+@media (min-width: 960px) {
+    .content-grid {
+      align-items: center;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.card-previews {
+    position: relative;
+}
+
+.card-front {
+    --card-padding: 2rem;
+    z-index: 1;
+    bottom: 0;
+}
+
+.card-back {
+    right: 0;
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: min-content;
+}
+
+.card-front > *:not(.card-front__bg),
+.card-back > *:not(.card-back__bg) {
+    position: absolute;
+}
+
+.card-front__bg,
+.card-back__bg {
+    max-width: revert;
+}
+
+.card-front__number {
+    color: #FFFFFF;
+    top: 50%;
+    left: var(--card-padding);
+    font-size: 1.625rem;
+}
+
+.card-front__name {
+    color: #FFFFFF;
+    bottom: var(--card-padding);
+    left: var(--card-padding);
+}
+
+.card-front__expiry {
+    color: #FFFFFF;
+    bottom: var(--card-padding);
+    right: var(--card-padding);
+}
+
+.card-back__cvc {
+    color: #FFFFFF;
+    top: 45%;
+    right: 2.5rem;
+}
+
+@media (min-width: 960px) {
+    .card-previews {
+        display: grid;
+        gap: 2rem;
+    }
+
+    .card-front,
+    .card-back {
+        position: relative;
+    }
+
+    .card-back {
+        margin-left: auto;
+    }
+}
+
+fieldset {
+    border: hidden;
+    right: 0;
+}
+
+label {
+    font-size: .6em;
+}
+
+input {
+    padding: 10px 10px;
+    margin: 0;
+    border: hidden;
+    border-radius: 5px;
+}
+
+.btn-confirm {
+    cursor: pointer;
+}
